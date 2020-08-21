@@ -1,0 +1,35 @@
+@model Wedding
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding @Model.WeddingId</title>
+</head>
+<body>
+    <div class="wrapper" style="width: 700px; margin: auto;">
+        <div style="display: flex; justify-content: space-between;">
+            <h1>@Model.Wedder1 & @Model.Wedder2's Wedding</h1>
+            <span style="margin: auto">
+                <a href="/weddings" style="margin-right: 20px;">Dashboard</a>
+                <a href="/logout" style="margin: auto;">Logout</a>
+            </span>
+        </div>
+
+        <div>
+            <h2>Date: @Model.Date</h2>
+            <h2>Wedding Address: @Model.Location</h2>
+            <h2>Guests:</h2>
+            <div style="margin-left: 20px;">
+                @foreach (var item in @Model.GuestList)
+                {
+                    <p>@item.User.FirstName @item.User.LastName</p>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+@model LogRegVmod
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="wrapper" style="width: 700px; margin: auto; display: flex;">
+        <div class="register" style="margin: auto;">
+            <h1 style="text-align: center;">Register</h1>
+
+            <div style="width: 280px;">
+                <form asp-action="Register" asp-controller="Home" method="POST" >
+                        <span style="color: red; margin-left: 20px; position: relative; left: -260px; top: 18px;" asp-validation-for="register.FirstName"></span><br>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <label asp-for="register.FirstName" ></label>
+                        <input asp-for="register.FirstName">
+                    </div>
+                        <span style="color: red; margin-left: 20px; position: relative; left: -260px; top: 18px;" asp-validation-for="register.LastName"></span><br>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <label asp-for="register.LastName" ></label>
+                        <input asp-for="register.LastName">
+                    </div>
+                        <span style="color: red; margin-left: 20px; position: relative; left: -230px; top: 18px;" asp-validation-for="register.Email"></span><br>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <label asp-for="register.Email" ></label>
+                        <input asp-for="register.Email">
+                    </div>
+                        <span style="color: red; margin-left: 20px; position: relative; left: -257px; top: 18px;" asp-validation-for="register.Password"></span><br>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <label asp-for="register.Password" ></label>
+                        <input asp-for="register.Password">
+                    </div>
+                        <span style="color: red; margin-left: 20px; position: relative; left: -300px; top: 18px; width: 300px;" asp-validation-for="register.Confirm"></span><br>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <label asp-for="register.Confirm" ></label>
+                        <input asp-for="register.Confirm">
+                    </div>
+                    <p style="text-align: center;">
+                        <button type="submit" >Register</button>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+            <div class="login" style="margin: 0px auto; width: 250px;">
+
+                <h1 style="text-align: center;">Login</h1>
+                <div>
+                    <form asp-action="LogUserIn" asp-controller="Home" method="POST" >
+                            <span style="color: red; margin-left: 20px; position: relative; left: 270px; top: 18px;" asp-validation-for="login.Email"> </span><br>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <label asp-for="login.Email" ></label>
+                            <input asp-for="login.Email">
+                        </div>
+                            <span style="color: red; margin-left: 20px; position: relative; left: 270px; top: 18px;" asp-validation-for="login.Password"></span><br>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <label asp-for="login.Password" ></label>
+                            <input asp-for="login.Password">
+                        </div>
+                        <p style="text-align: center;">
+                            <button type="submit" >Login</button>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+    </div>
+</body>
+</html>

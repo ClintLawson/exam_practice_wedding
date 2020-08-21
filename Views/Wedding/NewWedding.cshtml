@@ -1,0 +1,52 @@
+@model Wedding
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Wedding</title>
+</head>
+<body>
+    <div class="wrapper" style="width: 700px; margin: auto;">
+        <div style="display: flex; justify-content: space-between;">
+            <h1>Plan Your Wedding</h1>
+            <span style="margin: auto">
+                <a href="/weddings" style="margin-right: 20px;">Dashboard</a>
+                <a href="/logout" style="margin: auto;">Logout</a>
+            </span>
+        </div>
+
+        <div>
+            <form asp-action="CreateWedding" asp-controller="Wedding" method="POST">
+                <input asp-for="OwnerId" hidden>
+                <p>
+                    <label asp-for="Wedder1"></label>
+                    <input asp-for="Wedder1">
+                    <span asp-validation-for="Wedder1"></span>
+                </p>
+                <p>
+                    <label asp-for="Wedder2"></label>
+                    <input asp-for="Wedder2">
+                    <span asp-validation-for="Wedder2"></span>
+                </p>
+                <p>
+                    <label asp-for="Date"></label>
+                    <input asp-for="Date" asp-format="{0:dd/MM/yyyy HH:mm}">
+                    <span asp-validation-for="Date"></span>
+                </p>
+                <p>
+                    <label asp-for="Location"></label>
+                    <input asp-for="Location">
+                    <span asp-validation-for="Location"></span>
+                </p>
+                <p style="text-align: left; margin-left: 75px;">
+                    <button type="submit">Create</button>
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

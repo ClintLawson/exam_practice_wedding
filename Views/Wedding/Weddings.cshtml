@@ -1,0 +1,49 @@
+@model WeddingsVmod
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weddnings</title>
+</head>
+<body>
+    <div class="wrapper" style="width: 700px; margin: auto;">
+        <div style="display: flex;">
+            <h1>Welcome to the Wedding Planner</h1>
+            <a href="/logout" style="margin: auto;">Logout</a>
+        </div>
+        <div>
+            <table style="border:black 1px solid; margin: 20px auto; width: 100%;">
+                <tr style="text-align: left; background-color: grey;">
+                    <th>Wedding</th>
+                    <th>Date</th>
+                    <th>Guests</th>
+                    <th>Action</th>
+                </tr>
+                @foreach (Wedding w in Model.weddings)
+                {
+                    <tr style="background-color: lightgray;">
+                        <td> <a href="/wedding/@w.WeddingId">@w.Wedder1 & @w.Wedder2</a></td>
+                        <td>@w.Date</td>
+                        <td>@w.GuestList.Count</td>
+                        <td>
+                            @if(w.OwnerId == Model.user.UserId){
+                                <a href="/delete_wedding/@w.WeddingId">Delete</a>
+                            }
+                            else if(w.GuestList.Any(g => g.UserId == Model.user.UserId)){
+                                <a href="/change_rsvp/@w.WeddingId">Un-RSVP</a>
+                            }
+                            else{
+                                <a href="/change_rsvp/@w.WeddingId">RSVP</a>
+                            }
+                        </td>
+                    </tr>                    
+                }
+            </table>
+            <div style="display: flex; justify-content: right;">
+                <a href="/new_wedding" style="text-decoration: none; border: black 1px solid; padding: 5px 10px;">New Wedding</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
